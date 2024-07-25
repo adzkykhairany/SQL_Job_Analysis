@@ -2,17 +2,44 @@
 
 SELECT 
     skills,
-    COUNT(d.job_id) AS demand_count
+    COUNT(b.job_id) AS demand_count
 FROM 
-    job_postings_fact c
+    job_postings_fact a
 INNER JOIN 
-    skills_job_dim d ON c.job_id = d.job_id
+    skills_job_dim b ON a.job_id = b.job_id
 INNER JOIN 
-    skills_dim e ON d.skill_id = e.skill_id 
+    skills_dim c ON b.skill_id = c.skill_id 
 WHERE
     job_title_short = 'Data Analyst'
+    AND job_work_from_home = TRUE
 GROUP BY
     skills
 ORDER BY 
     demand_count DESC
 LIMIT 5
+
+
+/*
+[
+  {
+    "skills": "sql",
+    "demand_count": "7291"
+  },
+  {
+    "skills": "excel",
+    "demand_count": "4611"
+  },
+  {
+    "skills": "python",
+    "demand_count": "4330"
+  },
+  {
+    "skills": "tableau",
+    "demand_count": "3745"
+  },
+  {
+    "skills": "power bi",
+    "demand_count": "2609"
+  }
+]
+*/
