@@ -10,13 +10,13 @@ This project explores the 2023 data job market, **focusing on data analyst roles
 
 ## The Analysis
 ### 1. Top Paying Data Analyst Jobs
-![Top Paying Jobs](assets\top_paying_jobs.png)
+![Top Paying Jobs](assets/top_paying_jobs.png)
 **Insights:**
 - **Advanced Skill Requirements:** Top-paying data analyst roles require a mix of advanced skills and considerable experience.
 - **High-Paying Positions:** Roles such as `Data Scientist`, `Senior Data Analyst`, and `Analytics Manager` stand out for their high earning potential, reflecting the increasing value placed on advanced analytical skills and leadership in data-driven decision-making.
 
 ### 2. Skills for Top Paying Data Analyst Jobs
-![Top Paying Job Skills](assets\top_paying_job_skills.png)
+![Top Paying Job Skills](assets/top_paying_job_skills.png)
 **Key Insights:**
 - **High-Paying Skills:** The chart emphasizes skills most commonly linked to high-paying data analyst roles.
 - **Crucial Skills:** Advanced `SQL`, machine learning expertise, and proficiency in data visualization tools (e.g., `Tableau`, `Power BI`) are vital for securing top-paying positions.
