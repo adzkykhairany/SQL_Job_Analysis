@@ -29,6 +29,3 @@ This project explores the 2023 data job market, focusing on data analyst roles. 
 Special thanks to Luke Barousse for the data insights provided in [his YouTube video](https://youtu.be/7mz73uXD9DA?si=TJWDsG3Eb68o0hoJ). 
 
 **Note:** The analysis is ongoing and will be updated with new insights.
-
-
-
