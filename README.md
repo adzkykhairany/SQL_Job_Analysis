@@ -10,14 +10,64 @@ This project explores the 2023 data job market, **focusing on data analyst roles
 
 ## The Analysis
 ### 1. Top Paying Data Analyst Jobs
+```sql
+SELECT
+    job_id,
+    job_title,
+    name AS company_name,
+    job_location,
+    job_schedule_type,
+    salary_year_avg,
+    job_posted_date
+FROM
+    job_postings_fact a
+LEFT JOIN company_dim b ON a.company_id = b.company_id
+WHERE
+    job_title_short = 'Data Analyst'
+    AND job_location = 'Anywhere'
+    AND salary_year_avg IS NOT NULL
+ORDER BY
+    salary_year_avg DESC
+LIMIT 10
+```
+
 ![Top Paying Jobs](assets/top_paying_jobs.png)
+*Visuaization using Python*
 
 **Insights:**
 - **Advanced Skill Requirements:** Top-paying data analyst roles require a mix of advanced skills and considerable experience.
 - **High-Paying Positions:** Roles such as `Data Scientist`, `Senior Data Analyst`, and `Analytics Manager` stand out for their high earning potential, reflecting the increasing value placed on advanced analytical skills and leadership in data-driven decision-making.
 
 ### 2. Skills for Top Paying Data Analyst Jobs
+```sql
+WITH top_paying_job AS (
+    SELECT
+        job_id,
+        job_title,
+        salary_year_avg,
+        name AS company_name
+    FROM
+        job_postings_fact a
+    LEFT JOIN company_dim b ON a.company_id = b.company_id
+    WHERE
+        job_title_short = 'Data Analyst'
+        AND job_location = 'Anywhere'
+        AND salary_year_avg IS NOT NULL
+    ORDER BY
+        salary_year_avg DESC
+    LIMIT 10    
+)
+SELECT 
+    c.*,
+    skills
+FROM top_paying_job c
+INNER JOIN skills_job_dim d ON c.job_id = d.job_id
+INNER JOIN skills_dim e ON d.skill_id = e.skill_id 
+ORDER BY
+    salary_year_avg DESC
+```
 ![Top Paying Job Skills](assets/top_paying_job_skills.png)
+*Visuaization using Python*
 
 **Insights:**
 - **High-Paying Skills:** The chart emphasizes skills most commonly linked to high-paying data analyst roles.
@@ -25,6 +75,26 @@ This project explores the 2023 data job market, **focusing on data analyst roles
 - **Specialized Knowledge:** Skills in cloud computing (`AWS`, `Azure`) and statistical analysis are highly valued and contribute significantly to higher salaries.
 
 ### 3. In-Demand Skills for Data Analyst
+```sql
+SELECT 
+    skills,
+    COUNT(b.job_id) AS demand_count
+FROM 
+    job_postings_fact a
+INNER JOIN 
+    skills_job_dim b ON a.job_id = b.job_id
+INNER JOIN 
+    skills_dim c ON b.skill_id = c.skill_id 
+WHERE
+    job_title_short = 'Data Analyst'
+    AND job_work_from_home = TRUE
+GROUP BY
+    skills
+ORDER BY 
+    demand_count DESC
+LIMIT 5
+```
+
 | Skill     | Demand Count |
 |-----------|--------------|
 | SQL       | 7,291        |
@@ -40,6 +110,27 @@ This project explores the 2023 data job market, **focusing on data analyst roles
 - **Top Visualization Tools:** `Tableau` and `Power BI` are highly sought after for their powerful data visualization capabilities, crucial for effective reporting and decision-making.
 
 ### 4. Highest Earning Skills for Data Analyst
+```sql
+SELECT 
+    skills,
+    ROUND(AVG(salary_year_avg), 0) AS salary_avg
+FROM 
+    job_postings_fact a
+INNER JOIN 
+    skills_job_dim b ON a.job_id = b.job_id
+INNER JOIN 
+    skills_dim c ON b.skill_id = c.skill_id 
+WHERE
+    job_title_short = 'Data Analyst'
+    AND salary_year_avg IS NOT NULL
+    AND job_work_from_home = TRUE
+GROUP BY
+    skills
+ORDER BY 
+    salary_avg DESC
+LIMIT 25
+```
+
 |Skill          | Average Salary ($) |
 |---------------|--------------------|
 |PySpark        | 208,172            |
@@ -59,6 +150,26 @@ This project explores the 2023 data job market, **focusing on data analyst roles
 - **Core Programming and Data Science Libraries:** Expertise in `Pandas`, `Numpy`, and `Scikit-learn` is essential for data manipulation, numerical computing, and machine learning, forming the foundation of data science.
 
 ### 5. Most Effective Skills for Career Growth
+```sql
+SELECT
+    c.skills,
+    COUNT(a.job_id) AS demand_count,
+    ROUND(AVG(salary_year_avg), 0) AS salary_avg
+FROM job_postings_fact a
+INNER JOIN skills_job_dim b ON a.job_id = b.job_id
+INNER JOIN skills_dim c ON b.skill_id = c.skill_id 
+WHERE
+    job_title_short = 'Data Analyst'
+    AND salary_year_avg IS NOT NULL
+    AND job_work_from_home = TRUE
+GROUP BY c.skill_id
+HAVING COUNT(a.job_id) > 10
+ORDER BY
+    salary_avg DESC,
+    demand_count DESC 
+LIMIT 25
+```
+
 |Skill	    | Demand Count | Average Salary ($)|
 |-----------|--------------|-------------------|
 |Go	        | 27	       | 115,320           |    
