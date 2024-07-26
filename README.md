@@ -11,13 +11,15 @@ This project explores the 2023 data job market, **focusing on data analyst roles
 ## The Analysis
 ### 1. Top Paying Data Analyst Jobs
 ![Top Paying Jobs](assets/top_paying_jobs.png)
+
 **Insights:**
 - **Advanced Skill Requirements:** Top-paying data analyst roles require a mix of advanced skills and considerable experience.
 - **High-Paying Positions:** Roles such as `Data Scientist`, `Senior Data Analyst`, and `Analytics Manager` stand out for their high earning potential, reflecting the increasing value placed on advanced analytical skills and leadership in data-driven decision-making.
 
 ### 2. Skills for Top Paying Data Analyst Jobs
 ![Top Paying Job Skills](assets/top_paying_job_skills.png)
-**Key Insights:**
+
+**Insights:**
 - **High-Paying Skills:** The chart emphasizes skills most commonly linked to high-paying data analyst roles.
 - **Crucial Skills:** Advanced `SQL`, machine learning expertise, and proficiency in data visualization tools (e.g., `Tableau`, `Power BI`) are vital for securing top-paying positions.
 - **Specialized Knowledge:** Skills in cloud computing (`AWS`, `Azure`) and statistical analysis are highly valued and contribute significantly to higher salaries.
@@ -30,6 +32,7 @@ This project explores the 2023 data job market, **focusing on data analyst roles
 | Python    | 4,330        |
 | Tableau   | 3,745        |
 | Power BI  | 2,609        |
+
 **Insights:**
 - **SQL Dominance:** `SQL` continues to be the most in-demand skill, highlighting its essential role in data manipulation and querying across diverse industries.
 - **Excel’s Enduring Importance:** `Excel` remains a key tool for data analysis, particularly in financial and administrative contexts.
@@ -49,6 +52,7 @@ This project explores the 2023 data job market, **focusing on data analyst roles
 |Jupyter	    | 152,777            |
 |Pandas	        | 151,821            |
 |Elasticsearch  | 145,000            |
+
 **Insights:**
 - **Big Data and Advanced Analytics:** Skills in `PySpark`, `DataRobot`, and `Databricks` are crucial for handling big data, leveraging advanced machine learning platforms, and performing unified analytics.
 - **DevOps and Automation:** Proficiency in `Bitbucket`, `Jenkins`, and `Kubernetes` underscores the significance of collaboration, version control, automated deployment, and managing scalable containerized applications.
@@ -66,8 +70,9 @@ This project explores the 2023 data job market, **focusing on data analyst roles
 |AWS	    | 32	       | 108,317           |    
 |Java	    | 17	       | 106,906           |    
 |SSIS	    | 12	       | 106,683           |    
-|Jira	    | 20	       | 104,918           |    
-**Quick Insights:**
+|Jira	    | 20	       | 104,918           |
+
+**Insights:**
 - **Top Paying Skill:** `Go` offers the highest average salary at $115,320, indicating its strong value in the data analyst job market.
 - **High Value Cloud Technologies:** Skills in `Azure`, `Snowflake`, and `AWS` are among the highest paying, reflecting the premium on cloud expertise.
 - **Competitive Data Tools:** Proficiency in tools like `Hadoop` and `BigQuery` also leads to substantial salaries, highlighting their importance in data management.
